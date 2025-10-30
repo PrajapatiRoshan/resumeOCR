@@ -26,7 +26,7 @@ function App() {
         `${import.meta.env.VITE_API_URL}/resume/extract`,
         formData,
         {
-          headers: { 
+          headers: {
             "Content-Type": "multipart/form-data",
             "Access-Control-Allow-Origin": "*"
           },
