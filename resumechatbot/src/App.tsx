@@ -23,7 +23,7 @@ function App() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:8000/resume/extract",
+        "https://resumeocr-yuzi.onrender.com/resume/extract",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
