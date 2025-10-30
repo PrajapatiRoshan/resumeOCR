@@ -13,7 +13,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         # "*",
-        "http://localhost:5173",
+        # "http://localhost:5173",
+        "https://prajapatiroshan.github.io/resumeOCR/"
 
     ],  # Adjust this in production
     allow_credentials=True,
