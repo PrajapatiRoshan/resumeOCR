@@ -2,7 +2,7 @@ name: Deploy React Frontend to GitHub Pages
 
 on:
     push:
-        branches: ["main"]
+        branches: ["master"]
     workflow_dispatch:
 
 permissions:
@@ -22,11 +22,14 @@ jobs:
               with:
                   node-version: "18"
                   cache: "npm"
+                  cache-dependency-path: "./resumechatbot/package-lock.json"
 
             - name: Install dependencies
+              working-directory: ./resumechatbot
               run: npm ci
 
             - name: Build project
+              working-directory: ./resumechatbot
               run: npm run build
 
             - name: Setup Pages
@@ -35,7 +38,7 @@ jobs:
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v2
               with:
-                  path: "./build"
+                  path: "./resumechatbot/dist"
 
     deploy:
         needs: build
