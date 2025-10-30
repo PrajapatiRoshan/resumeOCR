@@ -12,15 +12,16 @@ app.include_router(resume.router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        # "*",
-        # "http://localhost:5173",
-        "https://prajapatiroshan.github.io/resumeOCR/"
-
-    ],  # Adjust this in production
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://prajapatiroshan.github.io",
+        "https://prajapatiroshan.github.io/resumeOCR"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*", "Authorization"],  # Explicitly include Authorization
-    expose_headers=["Authorization"],
+    allow_headers=["*"],
+    expose_headers=["*"],
+    allow_origin_regex="https://prajapatiroshan\.github\.io.*"
 )
 
 

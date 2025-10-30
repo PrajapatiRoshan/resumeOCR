@@ -23,10 +23,14 @@ function App() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://resumeocr-yuzi.onrender.com/resume/extract",
+        `${import.meta.env.VITE_API_URL}/resume/extract`,
         formData,
         {
-          headers: { "Content-Type": "multipart/form-data" },
+          headers: { 
+            "Content-Type": "multipart/form-data",
+            "Access-Control-Allow-Origin": "*"
+          },
+          withCredentials: true
         }
       );
       console.log(response.data);
